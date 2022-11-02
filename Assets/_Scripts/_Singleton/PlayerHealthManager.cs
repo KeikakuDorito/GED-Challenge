@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerHealthManager : MonoBehaviour
 {
     public static PlayerHealthManager instance;
-    int health;
+    int health = 3;
     void Awake()
     {
         if (!instance)
@@ -16,5 +16,11 @@ public class PlayerHealthManager : MonoBehaviour
     public void ChangeHealth(int increment)
     {
         health += increment;
+        print("Health: " + health);
+    }
+
+    public int GetHealth()
+    {
+        return health;
     }
 }
