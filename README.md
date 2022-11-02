@@ -36,9 +36,24 @@ A singleton is beneficial for  this situation as there will be no new instances 
 
 
 ## Command
+(Unsucessful Implimentation, was not able to impliment fully in time.)
+
 
 A Command Interface called ICommand is created as a interface for all commands. All commands will be derived from ICommand to ensure all commands have the Execute and Undo methods.
 
 The command "DestroyBrickCommand" inherits ICommand, with it's own definitions of Execute and Undo. When the the command is called by the client (in this case, the hitbox of the player), the command will be added to the queue of the command invoker, whcih will execute the command. When executed, the command will call "BrickDestroyer" to with the information of which brick to destroy the specificed brick.
 
 When undone, the brick will be placed back at it's previous position.
+
+
+## Observer
+
+https://jamboard.google.com/d/1zK-TLj93DxJWUuMLrkKbVaF0esM0FUXkBFp26hVIHYY/edit?usp=sharing
+
+The Observer Pattern can be used when reaching the end of the level to notify several systems that the game has ended. Upon the player reaching the end pterodactyl, the subscribers could be notified and be asked to update depending on what their OnNotify is.
+
+Subscribers:
+
+- Timer (Stop the timer)
+- Score (Update to calculate the total score)
+- AudioManager(to play the victory fanfare)
